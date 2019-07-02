@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "937432029833",
+    "firebase_url": "https://liquorshop-e1629.firebaseio.com",
+    "project_id": "liquorshop-e1629",
+    "storage_bucket": "liquorshop-e1629.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937432029833:android:b8fee2405c5a54e8",
+        "android_client_info": {
+          "package_name": "com.auradix.flutter_news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937432029833-cssiiprj3f3sknm4g67satsgj0s5c89o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.auradix.flutter_news",
+            "certificate_hash": "4966a3dc37b3462af4fdc6970c00b75c7d3a2c84"
+          }
+        },
+        {
+          "client_id": "937432029833-d4o1otj5n9aicjmhkb4se30ti0nvm4qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJZm1SQL0YzhLKTpC9ASo5Z1CI4IPF03k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937432029833-d4o1otj5n9aicjmhkb4se30ti0nvm4qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937432029833:android:16c8f5ffdd450fd6",
+        "android_client_info": {
+          "package_name": "com.auradix.liquorshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937432029833-d4o1otj5n9aicjmhkb4se30ti0nvm4qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJZm1SQL0YzhLKTpC9ASo5Z1CI4IPF03k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937432029833-d4o1otj5n9aicjmhkb4se30ti0nvm4qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

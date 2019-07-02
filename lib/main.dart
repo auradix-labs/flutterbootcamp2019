@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/dice.dart';
-import 'package:flutter_news/tltc.dart';
+import 'package:flutter_news/tltc/tltc.dart';
+
+import 'firebase/student/studentAddEdit.dart';
+import 'lamp/lamp.dart';
 
 void main() {
   runApp(
@@ -10,7 +12,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: TLTC(),
+      home: StudentForm(),
     ),
   );
 }
@@ -18,7 +20,6 @@ void main() {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: SafeArea(
         child: Container(
