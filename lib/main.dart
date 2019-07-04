@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news/tltc/tltc.dart';
 
 import 'firebase/student/studentAddEdit.dart';
+import 'firebase/student/student_list_screen.dart';
 import 'lamp/lamp.dart';
 
 void main() {
@@ -12,7 +13,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: StudentForm(),
+      home: StudentList(),
     ),
   );
 }

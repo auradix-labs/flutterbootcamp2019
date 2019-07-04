@@ -13,42 +13,47 @@ class _StudentFormState extends State<StudentForm> {
   final _myFormKey = GlobalKey<FormState>();
   final Student student = Student();
   final StudentService _studentService = StudentService();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('Student'),
+        ),
         body: SingleChildScrollView(
           child: Form(
             key: _myFormKey,
-            child: Column(
-              children: <Widget>[
-                TextFormField(
-                  controller: _nameController,
-                  decoration: InputDecoration(labelText: 'Student Name'),
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Name can not be empty';
-                    }
-                  },
-                  onSaved: (value){
-                    student.name = value;
-                  },
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    var form = _myFormKey.currentState;
-                    if(form.validate()){
-                      form.save();
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    controller: _nameController,
+                    decoration: InputDecoration(labelText: 'Student Name'),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Name can not be empty';
+                      }
+                    },
+                    onSaved: (value) {
+                      student.name = value;
+                    },
+                  ),
+                  RaisedButton(
+                    onPressed: () {
+                      var form = _myFormKey.currentState;
+                      if (form.validate()) {
+                        form.save();
 //                      invoke service to save object to firestore
-                    _studentService.save(student);
-
-                    }
+                        _studentService.save(student);
+                      }
 //                    print(_nameController.text);
-
-                  },
-                  child: Text('Save'),
-                )
-              ],
+                    },
+                    child: Text('Save'),
+                  )
+                ],
+              ),
             ),
           ),
         ),

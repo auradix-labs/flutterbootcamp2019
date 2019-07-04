@@ -12,7 +12,7 @@ class Student {
   factory Student.fromMap(Map<String, dynamic> map) {
     return Student(
       name: map['name'],
-      rollNo: map['roll'],
+      rollNo: map['rollNo'],
       guardianName: map['guardianName'],
       email: map['email'],
     );
