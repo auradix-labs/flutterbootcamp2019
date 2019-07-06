@@ -7,10 +7,14 @@ class StudentService {
   list() {}
 
   save(Student student) async {
-    await _db.add(student.toMap());
+    student.uid != null
+        ? await _db.document(student.uid).setData(student.toMap(), merge: true)
+        : await _db.add(student.toMap());
   }
 
   read() {}
 
-  delete() {}
+  delete(Student student) {
+    _db.document(student.uid).delete();
+  }
 }

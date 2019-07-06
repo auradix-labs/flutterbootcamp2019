@@ -18,26 +18,44 @@ class _StudentListState extends State<StudentList> {
       appBar: AppBar(
         title: Text('Student List'),
       ),
-      floatingActionButton: FloatingActionButton(child:Icon(Icons.add),onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>StudentForm()));
-      }),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => StudentForm(Student())));
+          }),
       body: Container(
         child: StreamBuilder(
           stream: db.snapshots(),
           builder: (context, snapshot) {
-            return ListView.builder(
-              itemCount: snapshot.data.documents.length,
-              itemBuilder: (context, index) {
-                Student student =
-                    Student.fromMap(snapshot.data.documents[index].data);
-                return Card(
-                    child: ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text(student.name),
-                  subtitle: Text(student.email),
-                ));
-              },
-            );
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data.documents.length,
+                itemBuilder: (context, index) {
+                  Student student =
+                      Student.formFirestore(snapshot.data.documents[index]);
+                  return Card(
+                      child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text(student.name),
+                    subtitle: Text(student.email),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => StudentForm(student)),
+                      );
+                    },
+                  ));
+                },
+              );
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
           },
         ),
       ),
