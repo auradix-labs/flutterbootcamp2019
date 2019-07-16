@@ -15,6 +15,7 @@ class StudentForm extends StatefulWidget {
 class _StudentFormState extends State<StudentForm> {
   Student student;
   final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _rollController = TextEditingController();
   final _myFormKey = GlobalKey<FormState>();
   final StudentService _studentService = StudentService();
 
@@ -22,10 +23,14 @@ class _StudentFormState extends State<StudentForm> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    student = widget.student;
+    if (widget.student != null) {
+      student = widget.student;
+    } else {
+      student = Student();
+    }
     _nameController.text = student.name;
+    _rollController.text = student.rollNo.toString();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +52,22 @@ class _StudentFormState extends State<StudentForm> {
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'Name can not be empty';
-                      } else
-                        return '';
+                      }
                     },
                     onSaved: (value) {
                       student.name = value;
+                    },
+                  ),
+                  TextFormField(
+                    controller: _rollController,
+                    decoration: InputDecoration(labelText: 'Student Roll'),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Roll can not be empty';
+                      }
+                    },
+                    onSaved: (value) {
+                      student.rollNo = int.parse(value);
                     },
                   ),
                   RaisedButton(

@@ -40,7 +40,7 @@ class _StudentListState extends State<StudentList> {
                       child: ListTile(
                     leading: Icon(Icons.person),
                     title: Text(student.name),
-                    subtitle: Text(student.email),
+                    subtitle: Text(student.rollNo.toString()),
                     onTap: () {
                       Navigator.push(
                         context,

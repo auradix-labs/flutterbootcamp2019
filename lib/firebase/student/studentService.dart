@@ -17,4 +17,18 @@ class StudentService {
   delete(Student student) {
     _db.document(student.uid).delete();
   }
+
+  Future<Student> search(String roll)async {
+    Student _s;
+    await _db.where("rollNo", isEqualTo: int.parse(roll)).getDocuments().then((snapshot) {
+      if (snapshot.documents.length > 0) {
+        var snap = snapshot.documents[0];
+        _s = Student.formFirestore(snap);
+      } else {
+        _s = null;
+      }
+      print("returning form service");
+    });
+    return _s;
+  }
 }
